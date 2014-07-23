@@ -1,6 +1,0 @@
-E:\phonebookwcftest\phonebookwcftest\phonebookwcftest\bin\Debug\phonebookwcftest.dll.config
-E:\phonebookwcftest\phonebookwcftest\phonebookwcftest\bin\Debug\phonebookwcftest.dll
-E:\phonebookwcftest\phonebookwcftest\phonebookwcftest\bin\Debug\phonebookwcftest.pdb
-E:\phonebookwcftest\phonebookwcftest\phonebookwcftest\obj\Debug\phonebookwcftest.csprojResolveAssemblyReference.cache
-E:\phonebookwcftest\phonebookwcftest\phonebookwcftest\obj\Debug\phonebookwcftest.dll
-E:\phonebookwcftest\phonebookwcftest\phonebookwcftest\obj\Debug\phonebookwcftest.pdb
