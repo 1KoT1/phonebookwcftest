@@ -9,9 +9,16 @@ namespace PhoneBookWcfTest
 {
     public class PhoneBook : IPhoneBook
     {
+        private PhoneBookData data = new PhoneBookData();
         public string GetFullNameByPhone(string phone)
-        {           
-            return "test";
+        {
+            var phoneBookItem = data.GetPhoneBookItemByPhone(phone);
+            return BuildFullName(phoneBookItem);
+        }
+
+        private string BuildFullName(PhoneBookItem phoneBookItem)
+        {
+            return String.Format("{0} {1} {2}", phoneBookItem.Name, phoneBookItem.Patronymic, phoneBookItem.Surname);
         }
     }
 }

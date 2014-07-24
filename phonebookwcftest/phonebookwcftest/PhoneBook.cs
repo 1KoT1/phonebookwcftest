@@ -8,7 +8,7 @@ namespace PhoneBookWcfTest
 {
     class PhoneBookData
     {
-        PhoneBookItem GetPhoneBookItemByPhone(string phone)
+        public PhoneBookItem GetPhoneBookItemByPhone(string phone)
         {
             /// DoIt;
             return new PhoneBookItem { Surname = "test", Name = "test", Patronymic = "test", Phone = phone };
