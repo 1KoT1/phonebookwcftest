@@ -49,9 +49,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\phonebookwcftest\phonebookwcftest.csproj">
+    <ProjectReference Include="..\phonebookwcftest\PhoneBookWcfTest.csproj">
       <Project>{1fff066d-6282-40bd-9b85-778b0ff3f6c8}</Project>
-      <Name>phonebookwcftest</Name>
+      <Name>PhoneBookWcfTest</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

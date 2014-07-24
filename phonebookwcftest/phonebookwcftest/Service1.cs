@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 
-namespace phonebookwcftest
+namespace PhoneBookWcfTest
 {
     public class PhoneBook : IPhoneBook
     {

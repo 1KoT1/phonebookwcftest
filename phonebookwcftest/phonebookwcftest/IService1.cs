@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 
-namespace phonebookwcftest
+namespace PhoneBookWcfTest
 {
     [ServiceContract(Namespace = "http://Microsoft.ServiceModel.Samples")]
     public interface IPhoneBook
