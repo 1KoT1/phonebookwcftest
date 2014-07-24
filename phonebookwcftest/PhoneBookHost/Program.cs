@@ -14,7 +14,7 @@ namespace PhoneBookHost
         private const string exitCode = "EXIT";
         static void Main(string[] args)
         {
-            Uri baseAddress = new Uri("http://localhost:8000/NoteBook/");
+            Uri baseAddress = new Uri("http://localhost:8000/PhoneBook/Service");
 
             ServiceHost selfHost = new ServiceHost(typeof(PhoneBook), baseAddress);
 
