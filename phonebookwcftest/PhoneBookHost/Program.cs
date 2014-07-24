@@ -35,7 +35,7 @@ namespace PhoneBookHost
                 {
                     userCommand = Console.ReadLine();
                 }
-                while (userCommand == exitCode);
+                while (userCommand != exitCode);
 
                 selfHost.Close();
             }
