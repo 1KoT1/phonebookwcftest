@@ -27,8 +27,8 @@ namespace PhoneBookHost
                 selfHost.Description.Behaviors.Add(smb);
 
                 selfHost.Open();
-                Console.WriteLine("Служба запущена.");
-                Console.WriteLine("Для остановки службы введите \"{0}\"", exitCode);
+                Console.WriteLine(Messages.ServiceStart);
+                Console.WriteLine(Messages.StopService, exitCode);
                 Console.WriteLine();
                 string userCommand;
                 do
@@ -41,7 +41,7 @@ namespace PhoneBookHost
             }
             catch (CommunicationException ce)
             {
-                Console.WriteLine("Ошибка: {0}", ce.Message);
+                Console.WriteLine(Messages.ErrorOutPut, ce.Message);
                 selfHost.Abort();
             }
         }
