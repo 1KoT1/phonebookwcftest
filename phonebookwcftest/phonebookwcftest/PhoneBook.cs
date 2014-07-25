@@ -5,11 +5,14 @@ using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using log4net;
+using log4net.Config;
 
 namespace PhoneBookWcfTest
 {
     class PhoneBookData : IDisposable
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(PhoneBookData));
         private OleDbConnection connection;
         public PhoneBookData(string conStr)
         {
@@ -38,7 +41,8 @@ namespace PhoneBookWcfTest
             }
             catch(Exception Exception)
             {
-
+                log.Error(String.Format(Messages.GetPhoneBookItemByPhoneErr, Exception.Message));
+                return null;
             }
             return null;
         }

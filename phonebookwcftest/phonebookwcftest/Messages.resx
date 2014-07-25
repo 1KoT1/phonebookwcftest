@@ -120,4 +120,7 @@
   <data name="ErrInGetFullNameByPhone" xml:space="preserve">
     <value>Произошла ошибка при обработки запроса Ф.И.О. по номеру телефона. {0}</value>
   </data>
+  <data name="GetPhoneBookItemByPhoneErr" xml:space="preserve">
+    <value>Не удалось получить данные карточки по номеру телефона. {0}</value>
+  </data>
 </root>
