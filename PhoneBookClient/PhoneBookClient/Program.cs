@@ -17,23 +17,29 @@ namespace PhoneBookClient
         static void Main(string[] args)
         {
             XmlConfigurator.Configure(new System.IO.FileInfo("log4net.config"));
-
-            var phoneBook = new PhoneBookClient.PhoneBookServiceReference.PhoneBookClient();
-
-            Console.WriteLine(Messages.InputPhoneOrExit, exitCode);
-            var userInPut = Console.ReadLine();
-            while (userInPut != exitCode)
+            try
             {
-                try
+                var phoneBook = new PhoneBookClient.PhoneBookServiceReference.PhoneBookClient();
+
+                Console.WriteLine(Messages.InputPhoneOrExit, exitCode);
+                var userInPut = Console.ReadLine();
+                while (userInPut != exitCode)
                 {
-                    Console.WriteLine(phoneBook.GetFullNameByPhone(userInPut));
+                    try
+                    {
+                        Console.WriteLine(phoneBook.GetFullNameByPhone(userInPut));
+                    }
+                    catch (Exception ex)
+                    {
+                        log.Error(String.Format(Messages.RequestNameByPhoneErrLog, ex.Message));
+                        Console.WriteLine(Messages.RequestErr);
+                    }
+                    userInPut = Console.ReadLine();
                 }
-                catch (Exception ex)
-                {
-                    log.Error(String.Format(Messages.RequestNameByPhoneErrLog, ex.Message));
-                    Console.WriteLine(Messages.RequestErr);
-                }
-                userInPut = Console.ReadLine();
+            }
+            catch(Exception ex)
+            {
+                log.Error(String.Format(Messages.Err, ex.Message));
             }
         }
     }

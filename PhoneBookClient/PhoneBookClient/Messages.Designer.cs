@@ -61,6 +61,15 @@ namespace PhoneBookClient {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Необработанное исключение: {0}.
+        /// </summary>
+        internal static string Err {
+            get {
+                return ResourceManager.GetString("Err", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Введите номер телефона или &quot;{0}&quot; для выхода..
         /// </summary>
         internal static string InputPhoneOrExit {
