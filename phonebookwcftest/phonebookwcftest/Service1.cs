@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using log4net;
 using log4net.Config;
+using InputValidation;
 
 namespace PhoneBookWcfTest
 {
@@ -17,9 +18,14 @@ namespace PhoneBookWcfTest
         {
             try
             {
-                var phoneBookItem = data.GetPhoneBookItemByPhone(phone);
-                if (phoneBookItem != null)
-                    return BuildFullName(phoneBookItem);
+                if (PhoneValidator.PhoneValidate(phone))
+                {
+                    var phoneBookItem = data.GetPhoneBookItemByPhone(phone);
+                    if (phoneBookItem != null)
+                        return BuildFullName(phoneBookItem);
+                    else
+                        return "";
+                }
                 else
                     return "";
             }

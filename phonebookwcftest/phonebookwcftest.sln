@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBookWcfTest", "phonebo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBookHost", "PhoneBookHost\PhoneBookHost.csproj", "{3B77B481-2665-4CCE-8396-3244FA990485}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InputValidation", "InputValidation\InputValidation.csproj", "{A95C3DE1-7F76-4B25-B2CC-231668976133}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3B77B481-2665-4CCE-8396-3244FA990485}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B77B481-2665-4CCE-8396-3244FA990485}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B77B481-2665-4CCE-8396-3244FA990485}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A95C3DE1-7F76-4B25-B2CC-231668976133}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A95C3DE1-7F76-4B25-B2CC-231668976133}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A95C3DE1-7F76-4B25-B2CC-231668976133}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A95C3DE1-7F76-4B25-B2CC-231668976133}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
