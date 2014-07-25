@@ -6,6 +6,8 @@ using System.ServiceModel;
 using System.ServiceModel.Description;
 using System.Text;
 using System.Threading.Tasks;
+using log4net;
+using log4net.Config;
 
 namespace PhoneBookHost
 {
@@ -14,6 +16,8 @@ namespace PhoneBookHost
         private const string exitCode = "EXIT";
         static void Main(string[] args)
         {
+            XmlConfigurator.Configure(new System.IO.FileInfo("log4net.config"));
+
             Uri baseAddress = new Uri("http://localhost:8000/PhoneBook/Service");
 
             ServiceHost selfHost = new ServiceHost(typeof(PhoneBook), baseAddress);
