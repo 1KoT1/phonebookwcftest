@@ -123,6 +123,9 @@
   <data name="InputPhoneOrExit" xml:space="preserve">
     <value>Введите номер телефона или "{0}" для выхода.</value>
   </data>
+  <data name="PhoneUnvalidate" xml:space="preserve">
+    <value>Указан некорректный номер</value>
+  </data>
   <data name="RequestErr" xml:space="preserve">
     <value>Не удалось выполнить запрос</value>
   </data>

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using PhoneBookClient.PhoneBookServiceReference;
 using log4net;
 using log4net.Config;
+using InputValidation;
 
 namespace PhoneBookClient
 {
@@ -25,16 +26,24 @@ namespace PhoneBookClient
                 var userInPut = Console.ReadLine();
                 while (userInPut != exitCode)
                 {
-                    try
+                    if (PhoneValidator.PhoneValidate(userInPut))
                     {
-                        Console.WriteLine(phoneBook.GetFullNameByPhone(userInPut));
+                        try
+                        {
+                            Console.WriteLine(phoneBook.GetFullNameByPhone(userInPut));
+                        }
+                        catch (Exception ex)
+                        {
+                            log.Error(String.Format(Messages.RequestNameByPhoneErrLog, ex.Message));
+                            Console.WriteLine(Messages.RequestErr);
+                        }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        log.Error(String.Format(Messages.RequestNameByPhoneErrLog, ex.Message));
-                        Console.WriteLine(Messages.RequestErr);
+                        Console.WriteLine(Messages.PhoneUnvalidate);
                     }
                     userInPut = Console.ReadLine();
+
                 }
             }
             catch(Exception ex)

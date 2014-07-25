@@ -79,6 +79,15 @@ namespace PhoneBookClient {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Указан некорректный номер.
+        /// </summary>
+        internal static string PhoneUnvalidate {
+            get {
+                return ResourceManager.GetString("PhoneUnvalidate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Не удалось выполнить запрос.
         /// </summary>
         internal static string RequestErr {
