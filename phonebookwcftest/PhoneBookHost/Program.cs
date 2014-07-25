@@ -14,39 +14,47 @@ namespace PhoneBookHost
     class Program
     {
         private const string exitCode = "EXIT";
+        private static readonly ILog log = LogManager.GetLogger(typeof(Program));
         static void Main(string[] args)
         {
-            XmlConfigurator.Configure(new System.IO.FileInfo("log4net.config"));
-
-            Uri baseAddress = new Uri("http://localhost:8000/PhoneBook/Service");
-
-            ServiceHost selfHost = new ServiceHost(typeof(PhoneBook), baseAddress);
-
             try
             {
-                selfHost.AddServiceEndpoint(typeof(IPhoneBook), new WSHttpBinding(), "PhoneBook");
+                XmlConfigurator.Configure(new System.IO.FileInfo("log4net.config"));
 
-                ServiceMetadataBehavior smb = new ServiceMetadataBehavior();
-                smb.HttpGetEnabled = true;
-                selfHost.Description.Behaviors.Add(smb);
+                Uri baseAddress = new Uri("http://localhost:8000/PhoneBook/Service");
 
-                selfHost.Open();
-                Console.WriteLine(Messages.ServiceStart);
-                Console.WriteLine(Messages.StopService, exitCode);
-                Console.WriteLine();
-                string userCommand;
-                do
+                ServiceHost selfHost = new ServiceHost(typeof(PhoneBook), baseAddress);
+
+                try
                 {
-                    userCommand = Console.ReadLine();
-                }
-                while (userCommand != exitCode);
+                    selfHost.AddServiceEndpoint(typeof(IPhoneBook), new WSHttpBinding(), "PhoneBook");
 
-                selfHost.Close();
+                    ServiceMetadataBehavior smb = new ServiceMetadataBehavior();
+                    smb.HttpGetEnabled = true;
+                    selfHost.Description.Behaviors.Add(smb);
+
+                    selfHost.Open();
+                    Console.WriteLine(Messages.ServiceStart);
+                    Console.WriteLine(Messages.StopService, exitCode);
+                    Console.WriteLine();
+                    string userCommand;
+                    do
+                    {
+                        userCommand = Console.ReadLine();
+                    }
+                    while (userCommand != exitCode);
+
+                    selfHost.Close();
+                }
+                catch (CommunicationException ce)
+                {
+                    log.Error(String.Format(Messages.ErrorOutPut, ce.Message));
+                    selfHost.Abort();
+                }
             }
-            catch (CommunicationException ce)
+            catch (Exception ex)
             {
-                Console.WriteLine(Messages.ErrorOutPut, ce.Message);
-                selfHost.Abort();
+                log.Error(String.Format(Messages.Err, ex.Message));
             }
         }
     }
