@@ -17,20 +17,27 @@ namespace PhoneBookWcfTest
         }
         public PhoneBookItem GetPhoneBookItemByPhone(string phone)
         {
-            var cmdStr = String.Format("SELECT Name, Surname, Patronymic FROM PhoneBook WHERE Phone=\"{0}\";", phone);
-            var cmd = new OleDbCommand(cmdStr, connection);
-            using (connection)
+            try
             {
-                connection.Open();
-
-                using (var reader = cmd.ExecuteReader())
+                var cmdStr = String.Format("SELECT Name, Surname, Patronymic FROM PhoneBook WHERE Phone=\"{0}\";", phone);
+                var cmd = new OleDbCommand(cmdStr, connection);
+                using (connection)
                 {
-                    // Интересует только первая строка.
-                    if (reader.Read())
+                    connection.Open();
+
+                    using (var reader = cmd.ExecuteReader())
                     {
-                        return new PhoneBookItem { Name = reader.GetString(0), Surname = reader.GetString(1), Patronymic = reader.GetString(2), Phone = phone };
+                        // Интересует только первая строка.
+                        if (reader.Read())
+                        {
+                            return new PhoneBookItem { Name = reader.GetString(0), Surname = reader.GetString(1), Patronymic = reader.GetString(2), Phone = phone };
+                        }
                     }
+
                 }
+            }
+            catch(Exception Exception)
+            {
 
             }
             return null;
