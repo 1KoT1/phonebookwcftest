@@ -120,4 +120,10 @@
   <data name="InputPhoneOrExit" xml:space="preserve">
     <value>Введите номер телефона или "{0}" для выхода.</value>
   </data>
+  <data name="RequestErr" xml:space="preserve">
+    <value>Не удалось выполнить запрос</value>
+  </data>
+  <data name="RequestNameByPhoneErrLog" xml:space="preserve">
+    <value>Не удалось выполнить запрос Ф.И.О. по номеру телефона. {0}</value>
+  </data>
 </root>

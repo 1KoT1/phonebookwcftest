@@ -68,5 +68,23 @@ namespace PhoneBookClient {
                 return ResourceManager.GetString("InputPhoneOrExit", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Не удалось выполнить запрос.
+        /// </summary>
+        internal static string RequestErr {
+            get {
+                return ResourceManager.GetString("RequestErr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Не удалось выполнить запрос Ф.И.О. по номеру телефона. {0}.
+        /// </summary>
+        internal static string RequestNameByPhoneErrLog {
+            get {
+                return ResourceManager.GetString("RequestNameByPhoneErrLog", resourceCulture);
+            }
+        }
     }
 }

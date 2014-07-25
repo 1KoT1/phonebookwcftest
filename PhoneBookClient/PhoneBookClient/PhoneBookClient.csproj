@@ -63,7 +63,9 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="log4net.config" />
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Service References\PhoneBookServiceReference\PhoneBook.wsdl" />
     <None Include="Service References\PhoneBookServiceReference\Service.wsdl" />
     <None Include="Service References\PhoneBookServiceReference\Service.xsd">

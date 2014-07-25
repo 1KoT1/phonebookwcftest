@@ -12,6 +12,8 @@ namespace PhoneBookClient
     class Program
     {
         const string exitCode = "EXIT";
+
+        private static readonly ILog log = LogManager.GetLogger(typeof(Program));
         static void Main(string[] args)
         {
             XmlConfigurator.Configure(new System.IO.FileInfo("log4net.config"));
@@ -22,7 +24,15 @@ namespace PhoneBookClient
             var userInPut = Console.ReadLine();
             while (userInPut != exitCode)
             {
-                Console.WriteLine(phoneBook.GetFullNameByPhone(userInPut));
+                try
+                {
+                    Console.WriteLine(phoneBook.GetFullNameByPhone(userInPut));
+                }
+                catch (Exception ex)
+                {
+                    log.Error(String.Format(Messages.RequestNameByPhoneErrLog, ex.Message));
+                    Console.WriteLine(Messages.RequestErr);
+                }
                 userInPut = Console.ReadLine();
             }
         }
