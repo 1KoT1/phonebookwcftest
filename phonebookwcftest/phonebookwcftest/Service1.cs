@@ -9,11 +9,14 @@ namespace PhoneBookWcfTest
 {
     public class PhoneBook : IPhoneBook
     {
-        private PhoneBookData data = new PhoneBookData();
+        private PhoneBookData data = new PhoneBookData(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=PhoneBookTestDb.accdb; Persist Security Info=False;");
         public string GetFullNameByPhone(string phone)
         {
             var phoneBookItem = data.GetPhoneBookItemByPhone(phone);
-            return BuildFullName(phoneBookItem);
+            if (phoneBookItem != null)
+                return BuildFullName(phoneBookItem);
+            else
+                return "";
         }
 
         private string BuildFullName(PhoneBookItem phoneBookItem)
